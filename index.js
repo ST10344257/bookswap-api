@@ -4,20 +4,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 
-// 2. --- THIS IS THE FIX ---
+// Create an instance of the Express app
+const app = express();
+
 // Use the port Render provides via environment variables, or default to 3000
 const PORT = process.env.PORT || 3000;
 
-// 3. Set up middleware
+// Set up middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // --- In-Memory Database ---
 const users = [];
-
-// --- API Endpoints ---
-
-// ... (The rest of your API code for /register and /login remains exactly the same) ...
 
 // A simple test route to make sure the server is working
 app.get('/', (req, res) => {
@@ -78,12 +76,8 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// 5. Start the server and listen for incoming requests
+// Start the server and listen for incoming requests
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-```
-
-
-    
 
